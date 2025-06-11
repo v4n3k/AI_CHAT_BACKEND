@@ -33,7 +33,9 @@ class ChatController {
         LIMIT 1
       ) AS lm ON TRUE
     	WHERE
-        c."userId" = $1;
+        c."userId" = $1
+			ORDER BY
+    		lm.id DESC NULLS LAST;
       `,
 			[userId]
 		);
