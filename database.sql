@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS "users" (
 CREATE TABLE IF NOT EXISTS "chats" (
   id SERIAL PRIMARY KEY,
   "userId" INT NOT NULL,
-  "modelName" VARCHAR(127) NOT NULL,
+  model VARCHAR(127) NOT NULL,
   FOREIGN KEY ("userId") REFERENCES "users" ("id")
 );
 
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS "messages" (
   id SERIAL PRIMARY KEY,
   "chatId" INT NOT NULL,
   "from" VARCHAR(255),
-  content VARCHAR(4095) NOT NULL,
+  content TEXT NOT NULL,
   FOREIGN KEY ("chatId") REFERENCES "chats" ("id")
 );
 
